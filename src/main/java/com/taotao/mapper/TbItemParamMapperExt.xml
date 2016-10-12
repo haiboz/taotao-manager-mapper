@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.taotao.mapper.TbItemParamMapperExt">
+
 	<select id="queryPageList" parameterType="map"
 		resultType="com.taotao.pojo.TbItemParamVo">
-
 		SELECT 
 			p.id as id,
 			p.param_data as paramData,
@@ -13,10 +13,19 @@
 			c.name as itemCatName 
 		from
 			tb_item_param p 
-		left join tb_item_cat c on p.item_cat_id = c.id 
-		order by p.created desc
-		<!-- limit 1,20 -->
-		limit #{begin},#{length}
+			left join tb_item_cat c on p.item_cat_id = c.id 
+		order by p.created DESC
+		<if test="begin!=null and length!=null">
+			limit #{begin},#{length}
+    	</if> 
+	</select>
+	
+	<select id="queryListCount" resultType="int">
+		SELECT 
+			count(1) 
+		from
+			tb_item_param p 
+			left join tb_item_cat c on p.item_cat_id = c.id 
 	</select>
 
 </mapper>

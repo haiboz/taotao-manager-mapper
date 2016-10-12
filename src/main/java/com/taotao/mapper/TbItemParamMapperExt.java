@@ -11,5 +11,7 @@ import com.taotao.pojo.TbItemParamVo;
 public interface TbItemParamMapperExt extends LavaMapper<TbItemParam, TbItemParamExample> {
 
 	List<TbItemParamVo> queryPageList(Map<String,Object> map);
+
+	int queryListCount();
 	
 }
