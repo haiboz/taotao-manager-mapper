@@ -5,6 +5,7 @@
 	<select id="getPageContentList" parameterType="map" 
 			resultType="com.taotao.pojo.TbContent">
 		select 
+			id as id,
 			title as title,
 			sub_title as subTitle,
 			title_desc as titleDesc,
