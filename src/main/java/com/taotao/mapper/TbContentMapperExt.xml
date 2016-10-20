@@ -22,7 +22,7 @@
 				and category_id = #{categoryId,jdbcType=INTEGER}
 			</if>		
 		</where>
-		order by created desc
+		order by updated desc
 		<if test="begin != null and length != null">
 			limit #{begin},#{length}
 		</if>

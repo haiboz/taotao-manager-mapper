@@ -14,7 +14,7 @@
 		from
 			tb_item_param p 
 			left join tb_item_cat c on p.item_cat_id = c.id 
-		order by p.created DESC
+		order by p.updated DESC
 		<if test="begin!=null and length!=null">
 			limit #{begin},#{length}
     	</if> 
